@@ -85,8 +85,8 @@ public class MovieServiceImpl implements MovieService {
         movie.setId(1);
         movie.setPrice("12");
         movie.setAgeRestriction("18");
-        movie.setDirector("Kek");
-        movie.setGenre("Kek1");
+        movie.setDirector("Dir");
+        movie.setGenre("Gen");
         movie.setName("abcd");
         movie.setBudget(120000);
         movie.setYearOfRelease(1998);
