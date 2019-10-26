@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - List Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<style>
+    .btn{
+        background-color: tomato;
+        border: 2px solid royalblue;
+        border-radius: 50%;
+    }
+
+    .btn:hover{
+        background-color: lightsalmon;
+    }
+</style>
+<body style="background-color: beige">
+<div class="container">
+    <div th:if="${not #lists.isEmpty(movies)}">
+        <table class="table table-striped table-hover table-bordered table-responsive">
+            <tr style="background-color: #FEE8D6">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Genre</th>
+                <th>Age Restriction</th>
+                <th th:colspan="4">Actions</th>
+            </tr>
+
+            <tr th:each="movie:${movies}" style="background-color: burlywood">
+                <td th:text="${movie.id}" style="background-color: burlywood"></td>
+                <td th:text="${movie.name}" style="background-color: burlywood"></td>
+                <td th:text="${movie.price}" style="background-color: burlywood"></td>
+                <td th:text="${movie.genre}" style="background-color: burlywood"></td>
+                <td th:text="${movie.ageRestriction}" style="background-color: burlywood"></td>
+                <td style="background-color: burlywood"><a th:href="${'/delete/'+movie.id}">Rent</a></td>
+                <td style="background-color: burlywood"><a th:href="${'/showDetails/'+movie.id}">More Details</a></td>
+                <td style="background-color: burlywood"><a th:href="${'/edit/'+movie.id}">Edit</a></td>
+                <td style="background-color: burlywood"><a th:href="${'remove/'+movie.id}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center">
+        <button id="checkVerBtn" class="btn">Check Version</button>
+        <button id="rentedList" class="btn">Rented Movies</button>
+        <button id="addNewItem" class="btn">New Movie</button>
+    </div>
+
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+
+        var checkButton=$("#checkVerBtn");
+        var rentedList=$("#rentedList");
+        var addNewItem=$("#addNewItem");
+
+        checkButton.click(function(){
+            alert("Version 1.0");
+        });
+
+        checkButton.mousedown(function () {
+            checkButton.css("background-color","green");
+        });
+
+        checkButton.mouseup(function () {
+            checkButton.css("background-color","tomato");
+        });
+
+        rentedList.click(function (){
+            location.href="http://localhost:8080/rentedMovies";
+        });
+
+        rentedList.mousedown(function () {
+            rentedList.css("background-color","green");
+        });
+
+        rentedList.mouseup(function () {
+            rentedList.css("background-color","tomato");
+        });
+
+        addNewItem.click(function () {
+            location.href="http://localhost:8080/new";
+        });
+
+        addNewItem.mousedown(function () {
+            addNewItem.css("background-color","green");
+        });
+
+        addNewItem.mouseup(function () {
+            addNewItem.css("background-color","tomato");
+        });
+
+    })
+</script>
+</html>

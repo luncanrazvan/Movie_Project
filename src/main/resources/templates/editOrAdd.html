@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - List Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<style>
+    .btn{
+        background-color: tomato;
+        border: 2px solid royalblue;
+        border-radius: 50%;
+    }
+
+    .btn:hover{
+        background-color: lightsalmon;
+    }
+</style>
+<body style="background-color: #FFE7BA">
+<div class="container">
+    <form th:object="${movie}" th:action="@{/movieAE}" method="post">
+        <div align="center">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}">
+        </div>
+
+        <div align="center">
+            <label>Price:</label>
+            <input type="text" th:field="*{price}">
+        </div>
+        <div align="center">
+            <label>Director:</label>
+            <input type="text" th:field="*{director}">
+        </div>
+        <div align="center">
+            <label>Genre</label>
+            <input type="text" th:field="*{genre}">
+        </div>
+        <div align="center">
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div align="center">
+            <label>Year Of Release</label>
+            <input type="text" th:field="*{yearOfRelease}">
+        </div>
+        <div align="center">
+            <label>Budget</label>
+            <input type="text" th:field="*{budget}">
+        </div>
+    </form>
+</div>
+<div align="center">
+    <button type="submit" id="submitButton" class="btn">Submit</button>
+    <button type="submit" id="backButton" class="btn">Back</button>
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+
+        var submitBtn=$("#submitButton");
+        var backBtn=$("#backButton");
+
+        submitBtn.mousedown(function () {
+            submitBtn.css("background-color","green");
+        });
+
+        submitBtn.mouseup(function () {
+            submitBtn.css("background-color","tomato");
+        });
+
+        backBtn.mousedown(function () {
+            backBtn.css("background-color","green");
+        });
+
+        backBtn.mouseup(function () {
+            backBtn.css("background-color","tomato");
+        });
+        
+        backBtn.click(function () {
+            location.href="http://localhost:8080/allMovies";
+        });
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Movie Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body style="background-color: cadetblue">
+<div id="mainDiv" style="width:400px; margin:0 auto;" class="container">
+    <div align="center" class="blinker" style="color:midnightblue; font-size:30px;">Movie Project</div>
+    <div align="center">
+        <label>Enter the Movie shop </label>
+        <a href="/allMovies" style="color: tomato; text-decoration: none">here</a>
+    </div>
+
+</div>
+
+</body>
+</html>
